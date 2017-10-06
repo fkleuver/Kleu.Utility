@@ -74,6 +74,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Attributes\DefaultFixtureAttribute.cs" />
+    <Compile Include="Attributes\NamedFactAttribute.cs" />
+    <Compile Include="Attributes\NamedTheoryAttribute.cs" />
+    <Compile Include="DefaultFixture.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
