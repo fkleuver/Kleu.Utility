@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.26730.16
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kleu.Utility.Logging", "Kleu.Utility.Logging\Kleu.Utility.Logging.csproj", "{B12D3272-2C1E-40B3-A08B-2934306B87B3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kleu.Utility.Testing", "Kleu.Utility.Testing\Kleu.Utility.Testing.csproj", "{6AABDDCA-24BD-4DC1-9F5B-1F4414D1C1B0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{B12D3272-2C1E-40B3-A08B-2934306B87B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B12D3272-2C1E-40B3-A08B-2934306B87B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B12D3272-2C1E-40B3-A08B-2934306B87B3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6AABDDCA-24BD-4DC1-9F5B-1F4414D1C1B0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6AABDDCA-24BD-4DC1-9F5B-1F4414D1C1B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6AABDDCA-24BD-4DC1-9F5B-1F4414D1C1B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6AABDDCA-24BD-4DC1-9F5B-1F4414D1C1B0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
