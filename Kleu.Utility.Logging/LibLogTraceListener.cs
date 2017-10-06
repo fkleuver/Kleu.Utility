@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Diagnostics;
-using Kleu.Utility.Logging.Logging;
 
 namespace Kleu.Utility.Logging
 {
