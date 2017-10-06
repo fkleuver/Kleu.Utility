@@ -37,8 +37,8 @@
     <Reference Include="Castle.Core, Version=4.0.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
       <HintPath>..\packages\Castle.Core.4.2.0\lib\net45\Castle.Core.dll</HintPath>
     </Reference>
-    <Reference Include="Kleu.Utility.Logging, Version=1.0.6488.33411, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Kleu.Utility.Logging.1.0.6488.33411\lib\net47\Kleu.Utility.Logging.dll</HintPath>
+    <Reference Include="Kleu.Utility.Logging, Version=1.0.6489.1338, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Kleu.Utility.Logging.1.0.6489.1338\lib\net47\Kleu.Utility.Logging.dll</HintPath>
     </Reference>
     <Reference Include="NSubstitute, Version=3.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\NSubstitute.3.0.0\lib\netstandard1.3\NSubstitute.dll</HintPath>
