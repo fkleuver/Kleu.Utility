@@ -33,6 +33,24 @@
     <Reference Include="Autofac, Version=4.6.1.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
       <HintPath>..\packages\Autofac.4.6.1\lib\net45\Autofac.dll</HintPath>
     </Reference>
+    <Reference Include="Autofac.Extras.AggregateService, Version=4.1.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\packages\Autofac.Extras.AggregateService.4.1.0\lib\net45\Autofac.Extras.AggregateService.dll</HintPath>
+    </Reference>
+    <Reference Include="Autofac.Extras.DynamicProxy, Version=4.2.1.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\packages\Autofac.Extras.DynamicProxy.4.2.1\lib\net45\Autofac.Extras.DynamicProxy.dll</HintPath>
+    </Reference>
+    <Reference Include="Autofac.Integration.Owin, Version=4.1.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\packages\Autofac.Owin.4.1.0\lib\net45\Autofac.Integration.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Autofac.Integration.SignalR, Version=4.0.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\packages\Autofac.SignalR2.4.0.0\lib\net45\Autofac.Integration.SignalR.dll</HintPath>
+    </Reference>
+    <Reference Include="Autofac.Integration.WebApi, Version=4.1.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\packages\Autofac.WebApi2.4.1.0\lib\net45\Autofac.Integration.WebApi.dll</HintPath>
+    </Reference>
+    <Reference Include="Autofac.Integration.WebApi.Owin, Version=4.0.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\packages\Autofac.WebApi2.Owin.4.0.0\lib\net45\Autofac.Integration.WebApi.Owin.dll</HintPath>
+    </Reference>
     <Reference Include="AutoMapper, Version=6.1.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
       <HintPath>..\packages\AutoMapper.6.1.1\lib\net45\AutoMapper.dll</HintPath>
     </Reference>
@@ -183,47 +201,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Autofac.Extras\AggregateService\AggregateServiceGenerator.cs" />
-    <Compile Include="Autofac.Extras\AggregateService\ContainerBuilderExtensions.cs" />
-    <Compile Include="Autofac.Extras\AggregateService\ResolvingInterceptor.cs" />
-    <Compile Include="Autofac.Extras\AggregateService\TypeExtensions.cs" />
-    <Compile Include="Autofac.Extras\DynamicProxy\InterceptAttribute.cs" />
-    <Compile Include="Autofac.Extras\DynamicProxy\RegistrationExtensions.cs" />
-    <Compile Include="Autofac.Extras\DynamicProxy\RegistrationExtensionsResources.Designer.cs" />
-    <Compile Include="Autofac.Integration\Owin\AutofacAppBuilderExtensions.cs" />
-    <Compile Include="Autofac.Integration\Owin\AutofacMiddleware.cs" />
-    <Compile Include="Autofac.Integration\Owin\Constants.cs" />
-    <Compile Include="Autofac.Integration\Owin\OwinContextExtensions.cs" />
-    <Compile Include="Autofac.Integration\SignalR\AutofacDependencyResolver.cs" />
-    <Compile Include="Autofac.Integration\SignalR\RegistrationExtensions.cs" />
-    <Compile Include="Autofac.Integration\WebApi.Owin\AutofacWebApiAppBuilderExtensions.cs" />
-    <Compile Include="Autofac.Integration\WebApi.Owin\DependencyScopeHandler.cs" />
-    <Compile Include="Autofac.Integration\WebApi\ActionFilterOverrideWrapper.cs" />
-    <Compile Include="Autofac.Integration\WebApi\ActionFilterWrapper.cs" />
-    <Compile Include="Autofac.Integration\WebApi\AuthenticationFilterOverrideWrapper.cs" />
-    <Compile Include="Autofac.Integration\WebApi\AuthenticationFilterWrapper.cs" />
-    <Compile Include="Autofac.Integration\WebApi\AuthorizationFilterOverrideWrapper.cs" />
-    <Compile Include="Autofac.Integration\WebApi\AuthorizationFilterWrapper.cs" />
-    <Compile Include="Autofac.Integration\WebApi\AutofacControllerConfigurationAttribute.cs" />
-    <Compile Include="Autofac.Integration\WebApi\AutofacControllerConfigurationAttributeResources.Designer.cs" />
-    <Compile Include="Autofac.Integration\WebApi\AutofacOverrideFilter.cs" />
-    <Compile Include="Autofac.Integration\WebApi\AutofacWebApiDependencyResolver.cs" />
-    <Compile Include="Autofac.Integration\WebApi\AutofacWebApiDependencyScope.cs" />
-    <Compile Include="Autofac.Integration\WebApi\AutofacWebApiFilterProvider.cs" />
-    <Compile Include="Autofac.Integration\WebApi\AutofacWebApiModelBinderProvider.cs" />
-    <Compile Include="Autofac.Integration\WebApi\ControllerTypeKey.cs" />
-    <Compile Include="Autofac.Integration\WebApi\CurrentRequestHandler.cs" />
-    <Compile Include="Autofac.Integration\WebApi\DependencyResolverExtensions.cs" />
-    <Compile Include="Autofac.Integration\WebApi\ExceptionFilterOverrideWrapper.cs" />
-    <Compile Include="Autofac.Integration\WebApi\ExceptionFilterWrapper.cs" />
-    <Compile Include="Autofac.Integration\WebApi\FilterMetadata.cs" />
-    <Compile Include="Autofac.Integration\WebApi\IAutofacActionFilter.cs" />
-    <Compile Include="Autofac.Integration\WebApi\IAutofacAuthenticationFilter.cs" />
-    <Compile Include="Autofac.Integration\WebApi\IAutofacAuthorizationFilter.cs" />
-    <Compile Include="Autofac.Integration\WebApi\IAutofacExceptionFilter.cs" />
-    <Compile Include="Autofac.Integration\WebApi\IFilterWrapper.cs" />
-    <Compile Include="Autofac.Integration\WebApi\RegistrationExtensions.cs" />
-    <Compile Include="Autofac.Integration\WebApi\RegistrationExtensionsResources.Designer.cs" />
     <Compile Include="Extensions\AppBuilder.cs" />
     <Compile Include="Extensions\HttpContext.cs" />
     <Compile Include="IStartup.cs" />
@@ -238,11 +215,6 @@
     <None Include="app.config" />
     <None Include="Kleu.Utility.Web.nuspec" />
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Autofac.Extras\DynamicProxy\RegistrationExtensionsResources.resx" />
-    <EmbeddedResource Include="Autofac.Integration\WebApi\AutofacControllerConfigurationAttributeResources.resx" />
-    <EmbeddedResource Include="Autofac.Integration\WebApi\RegistrationExtensionsResources.resx" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
