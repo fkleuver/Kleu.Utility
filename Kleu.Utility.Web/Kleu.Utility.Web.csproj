@@ -202,6 +202,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Extensions\AppBuilder.cs" />
+    <Compile Include="Extensions\HttpConfiguration.cs" />
     <Compile Include="Extensions\HttpContext.cs" />
     <Compile Include="IStartup.cs" />
     <Compile Include="Logging\LogProviderExceptionLogger.cs" />
