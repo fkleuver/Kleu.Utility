@@ -30,6 +30,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Autofac, Version=4.6.1.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\packages\Autofac.4.6.1\lib\net45\Autofac.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -42,6 +45,9 @@
     <Reference Include="Kleu.Utility.Logging, Version=1.0.6489.39132, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Kleu.Utility.Logging.1.0.6489.39132\lib\net47\Kleu.Utility.Logging.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -53,7 +59,31 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BaseDbContext.cs" />
+    <Compile Include="BaseReadWriteRepository.cs" />
+    <Compile Include="Exceptions\AddEntityToDbContextException.cs" />
+    <Compile Include="Exceptions\DbContextResolutionException.cs" />
+    <Compile Include="Exceptions\EntityCreationException.cs" />
+    <Compile Include="Exceptions\EntityCreationValidationException.cs" />
+    <Compile Include="Exceptions\EntityDeleteException.cs" />
+    <Compile Include="Exceptions\EntityDeleteValidationException.cs" />
+    <Compile Include="Exceptions\EntityRetrievalException.cs" />
+    <Compile Include="Exceptions\EntityUpdateException.cs" />
+    <Compile Include="Exceptions\EntityUpdateValidationException.cs" />
+    <Compile Include="ICreateRepository.cs" />
+    <Compile Include="IDbContext.cs" />
+    <Compile Include="IDeleteRepository.cs" />
+    <Compile Include="IEntity.cs" />
+    <Compile Include="Interceptors\ChangeInterceptor.cs" />
+    <Compile Include="Interceptors\IInterceptor.cs" />
+    <Compile Include="Interceptors\InterceptionContext.cs" />
+    <Compile Include="Interceptors\TypeInterceptor.cs" />
+    <Compile Include="IReadRepository.cs" />
+    <Compile Include="IReadWriteRepository.cs" />
+    <Compile Include="IRepository.cs" />
+    <Compile Include="IUpdateRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RepositoryExtensions.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Kleu.Utility.Data.nuspec" />
