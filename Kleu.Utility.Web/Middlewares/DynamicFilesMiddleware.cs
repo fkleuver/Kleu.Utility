@@ -54,36 +54,38 @@ namespace Kleu.Utility.Web.Middlewares
                 }
                 await Next.Invoke(context);
             }
-
-            Log($"Handling request: {requestJson}");
-            if (requestpath == "/")
+            else
             {
-                requestpath += _options.DefaultFile;
-            }
-            var fullpath = _options.BaseDirectory + requestpath.Replace(@"/", @"\");
-            if (!File.Exists(fullpath))
-            {
-                if (_options.AbortIfFileNotFound)
+                Log($"Handling request: {requestJson}");
+                if (requestpath == "/")
                 {
-                    Log($"File not found: {{ \"{nameof(fullpath)}\": \"{fullpath}\" }}. Aborting..");
-                    return;
+                    requestpath += _options.DefaultFile;
+                }
+                var fullpath = _options.BaseDirectory + requestpath.Replace(@"/", @"\");
+                if (!File.Exists(fullpath))
+                {
+                    if (_options.AbortIfFileNotFound)
+                    {
+                        Log($"File not found: {{ \"{nameof(fullpath)}\": \"{fullpath}\" }}. Aborting..");
+                    }
+                    else
+                    {
+                        Log($"File not found: {{ \"{nameof(fullpath)}\": \"{fullpath}\" }}. Proceeding..");
+                        await Next.Invoke(context);
+                    }
                 }
                 else
                 {
-                    Log($"File not found: {{ \"{nameof(fullpath)}\": \"{fullpath}\" }}. Proceeding..");
-                    await Next.Invoke(context);
+                    var mime = MimeMapping.GetMimeMapping(fullpath);
+
+                    Log($"Serving file: {{ \"{nameof(fullpath)}\": \"{fullpath}\", \"{nameof(mime)}\": \"{mime}\" }}");
+                    using (var file = File.OpenRead(fullpath))
+                    {
+                        await file.CopyToAsync(context.Response.Body);
+                    }
+                    context.Response.Headers.Set(OwinKeys.ContentTypeHeader, mime);
                 }
             }
-
-            var mime = MimeMapping.GetMimeMapping(fullpath);
-
-            Log($"Serving file: {{ \"{nameof(fullpath)}\": \"{fullpath}\", \"{nameof(mime)}\": \"{mime}\" }}");
-            using (var file = File.OpenRead(fullpath))
-            {
-                await file.CopyToAsync(context.Response.Body);
-            }
-            context.Response.Headers.Set(OwinKeys.ContentTypeHeader, mime);
-
         }
 
         private void Log(string message)
