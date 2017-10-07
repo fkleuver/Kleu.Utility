@@ -33,6 +33,24 @@
     <Reference Include="Autofac, Version=4.6.1.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
       <HintPath>..\packages\Autofac.4.6.1\lib\net45\Autofac.dll</HintPath>
     </Reference>
+    <Reference Include="Autofac.Extras.AggregateService, Version=4.1.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\packages\Autofac.Extras.AggregateService.4.1.0\lib\net45\Autofac.Extras.AggregateService.dll</HintPath>
+    </Reference>
+    <Reference Include="Autofac.Extras.DynamicProxy, Version=4.2.1.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\packages\Autofac.Extras.DynamicProxy.4.2.1\lib\net45\Autofac.Extras.DynamicProxy.dll</HintPath>
+    </Reference>
+    <Reference Include="Autofac.Integration.Owin, Version=4.1.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\packages\Autofac.Owin.4.1.0\lib\net45\Autofac.Integration.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Autofac.Integration.SignalR, Version=4.0.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\packages\Autofac.SignalR2.4.0.0\lib\net45\Autofac.Integration.SignalR.dll</HintPath>
+    </Reference>
+    <Reference Include="Autofac.Integration.WebApi, Version=4.1.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\packages\Autofac.WebApi2.4.1.0\lib\net45\Autofac.Integration.WebApi.dll</HintPath>
+    </Reference>
+    <Reference Include="Autofac.Integration.WebApi.Owin, Version=4.0.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\packages\Autofac.WebApi2.Owin.4.0.0\lib\net45\Autofac.Integration.WebApi.Owin.dll</HintPath>
+    </Reference>
     <Reference Include="AutoMapper, Version=6.1.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
       <HintPath>..\packages\AutoMapper.6.1.1\lib\net45\AutoMapper.dll</HintPath>
     </Reference>
@@ -42,14 +60,14 @@
     <Reference Include="IdentityModel, Version=2.12.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\IdentityModel.2.12.0\lib\net452\IdentityModel.dll</HintPath>
     </Reference>
-    <Reference Include="Kleu.Utility.Common, Version=1.0.6489.10496, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Kleu.Utility.Common.1.0.6489.10496\lib\net47\Kleu.Utility.Common.dll</HintPath>
+    <Reference Include="Kleu.Utility.Common, Version=1.0.6489.39132, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Kleu.Utility.Common.1.0.6489.39132\lib\net47\Kleu.Utility.Common.dll</HintPath>
     </Reference>
-    <Reference Include="Kleu.Utility.Logging, Version=1.0.6489.10495, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Kleu.Utility.Logging.1.0.6489.10495\lib\net47\Kleu.Utility.Logging.dll</HintPath>
+    <Reference Include="Kleu.Utility.Logging, Version=1.0.6489.39132, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Kleu.Utility.Logging.1.0.6489.39132\lib\net47\Kleu.Utility.Logging.dll</HintPath>
     </Reference>
-    <Reference Include="Kleu.Utility.Web, Version=1.0.6489.10496, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Kleu.Utility.Web.1.0.6489.10496\lib\net47\Kleu.Utility.Web.dll</HintPath>
+    <Reference Include="Kleu.Utility.Web, Version=1.0.6489.39132, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Kleu.Utility.Web.1.0.6489.39132\lib\net47\Kleu.Utility.Web.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.ApplicationInsights, Version=2.4.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.ApplicationInsights.2.4.0\lib\net46\Microsoft.ApplicationInsights.dll</HintPath>

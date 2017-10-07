@@ -60,11 +60,11 @@
     <Reference Include="IdentityModel, Version=2.12.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\IdentityModel.2.12.0\lib\net452\IdentityModel.dll</HintPath>
     </Reference>
-    <Reference Include="Kleu.Utility.Common, Version=1.0.6489.10496, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Kleu.Utility.Common.1.0.6489.10496\lib\net47\Kleu.Utility.Common.dll</HintPath>
+    <Reference Include="Kleu.Utility.Common, Version=1.0.6489.39132, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Kleu.Utility.Common.1.0.6489.39132\lib\net47\Kleu.Utility.Common.dll</HintPath>
     </Reference>
-    <Reference Include="Kleu.Utility.Logging, Version=1.0.6489.10495, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Kleu.Utility.Logging.1.0.6489.10495\lib\net47\Kleu.Utility.Logging.dll</HintPath>
+    <Reference Include="Kleu.Utility.Logging, Version=1.0.6489.39132, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Kleu.Utility.Logging.1.0.6489.39132\lib\net47\Kleu.Utility.Logging.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.ApplicationInsights, Version=2.4.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.ApplicationInsights.2.4.0\lib\net46\Microsoft.ApplicationInsights.dll</HintPath>
