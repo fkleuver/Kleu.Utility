@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kleu.Utility.Common", "Kleu
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kleu.Utility.Web", "Kleu.Utility.Web\Kleu.Utility.Web.csproj", "{AA37AC49-AF50-4D2A-9567-749E115FD3AB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kleu.Utility.ConsoleHost", "Kleu.Utility.ConsoleHost\Kleu.Utility.ConsoleHost.csproj", "{67001AC3-39B6-4024-ABE4-6C03CFC449DD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{AA37AC49-AF50-4D2A-9567-749E115FD3AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AA37AC49-AF50-4D2A-9567-749E115FD3AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AA37AC49-AF50-4D2A-9567-749E115FD3AB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{67001AC3-39B6-4024-ABE4-6C03CFC449DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{67001AC3-39B6-4024-ABE4-6C03CFC449DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{67001AC3-39B6-4024-ABE4-6C03CFC449DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{67001AC3-39B6-4024-ABE4-6C03CFC449DD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
