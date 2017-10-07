@@ -43,8 +43,8 @@
     <Reference Include="FluentAssertions.Core, Version=4.19.4.0, Culture=neutral, PublicKeyToken=33f2691a05b67b6a, processorArchitecture=MSIL">
       <HintPath>..\packages\FluentAssertions.4.19.4\lib\net45\FluentAssertions.Core.dll</HintPath>
     </Reference>
-    <Reference Include="Kleu.Utility.Logging, Version=1.0.6489.1338, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Kleu.Utility.Logging.1.0.6489.1338\lib\net47\Kleu.Utility.Logging.dll</HintPath>
+    <Reference Include="Kleu.Utility.Logging, Version=1.0.6489.10495, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Kleu.Utility.Logging.1.0.6489.10495\lib\net47\Kleu.Utility.Logging.dll</HintPath>
     </Reference>
     <Reference Include="NSubstitute, Version=3.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\NSubstitute.3.0.0\lib\netstandard1.3\NSubstitute.dll</HintPath>
