@@ -58,6 +58,11 @@ namespace Kleu.Utility.Web
         /// <param name="container"></param>
         /// <param name="config"></param>
         /// <param name="configureSerializationWithCommonDefaults"></param>
+        /// <param name="mapHttpAttributeRoutes"></param>
+        /// <param name="setHttpDependencyResolverToAutofac"></param>
+        /// <param name="useAutofacMiddleware"></param>
+        /// <param name="useAutofacWebApi"></param>
+        /// <param name="useWebApi"></param>
         /// <returns></returns>
         public static IAppBuilder UseAutofacWebApiStack(
             this IAppBuilder app,

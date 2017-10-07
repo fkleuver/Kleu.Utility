@@ -207,7 +207,10 @@
     <Compile Include="Extensions\HttpContext.cs" />
     <Compile Include="Extensions\JsonMediaTypeFormatter.cs" />
     <Compile Include="IStartup.cs" />
+    <Compile Include="Logging\CallLogInterceptor.cs" />
+    <Compile Include="Logging\CallLogInterceptorModule.cs" />
     <Compile Include="Logging\LogProviderExceptionLogger.cs" />
+    <Compile Include="Logging\DependencyResolutionLogModule.cs" />
     <Compile Include="Middlewares\DynamicFilesMiddleware.cs" />
     <Compile Include="Middlewares\ExceptionHandlingMiddleware.cs" />
     <Compile Include="Middlewares\HttpLoggingMiddleware.cs" />
