@@ -57,7 +57,6 @@ namespace Kleu.Utility.Data
         {
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
 
-            modelBuilder.Properties().Where(x => x.Name == "ModifiedBy" || x.Name == "CreatedBy").Configure(x => x.HasMaxLength(64));
             base.OnModelCreating(modelBuilder);
         }
 
