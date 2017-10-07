@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>$id$</id>
+    <version>$version$</version>
+    <title>$title$</title>
+    <authors>fkleuver</authors>
+    <owners>fkleuver</owners>
+    <projectUrl>https://github.com/fkleuver/Kleu.Utility</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>EntityFramework Autofac integration and generic data access helpers</description>
+    <releaseNotes>First release</releaseNotes>
+    <copyright>Copyright 2017</copyright>
+    <tags>kleu utility data entityframework ef6 autofac</tags>
+  </metadata>
+</package>
