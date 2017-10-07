@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Net.Http;
 using System.Web;
+using Kleu.Utility.Logging;
 
 namespace Kleu.Utility.Web
 {
@@ -37,6 +38,11 @@ namespace Kleu.Utility.Web
             var request = httpContext.Items["MS_HttpRequestMessage"] as HttpRequestMessage;
             var scope = request.GetDependencyScope();
             return scope.GetService(type);
+        }
+
+        public static ILog GetLogger(this HttpContext httpContext)
+        {
+            return ResolveFromRequestScope(httpContext, typeof(ILog)) as ILog;
         }
     }
 }

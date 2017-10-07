@@ -1,83 +1,105 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
-using System.Net.Http.Formatting;
 using System.Reflection;
 using System.Threading.Tasks;
-using System.Web;
 using System.Web.Cors;
 using System.Web.Http;
-using System.Web.Http.ExceptionHandling;
 using Autofac;
 using Autofac.Integration.WebApi;
 using Kleu.Utility.Logging;
-using Kleu.Utility.Web.Logging;
 using Kleu.Utility.Web.Middlewares;
 using Microsoft.Owin.Cors;
 using Microsoft.Owin.FileSystems;
 using Microsoft.Owin.StaticFiles;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
-using Newtonsoft.Json.Serialization;
 using Owin;
 
 namespace Kleu.Utility.Web
 {
-    using AppFunc = Func<IDictionary<string, object>, Task>;
-
     public static class AppBuilderExtensions
     {
+        /// <summary>
+        /// Enable HTTP logging for the middleware that comes after this one, using Autofac to resolve the logger.
+        /// The Autofac middleware registration must precede this one, and the <see cref="HttpLoggingMiddleware"/> must be registered with Autofac.
+        /// </summary>
+        /// <param name="app"></param>
+        /// <returns></returns>
         public static IAppBuilder UseHttpLogging(this IAppBuilder app)
         {
             return app.Use<HttpLoggingMiddleware>();
         }
 
         /// <summary>
-        /// Must come directly AFTER security middlewares such as CORS and AccessTokenValidation
+        /// Enable HTTP logging for the middleware that comes after this one, using the supplied logger
+        /// </summary>.
+        /// <param name="app"></param>
+        /// <param name="logger"></param>
+        /// <returns></returns>
+        public static IAppBuilder UseHttpLogging(this IAppBuilder app, ILog logger)
+        {
+            return app.Use<HttpLoggingMiddleware>(logger);
+        }
+
+        /// <summary>
+        /// Enable exception handling for the middleware that comes after this one, using <see cref="ExceptionHandlingMiddleware"/> and using the supplied logger.
+        /// </summary>.
+        /// <param name="app"></param>
+        /// <param name="logger"></param>
+        /// <returns></returns>
+        public static IAppBuilder UseExceptionHandler(this IAppBuilder app, ILog logger)
+        {
+            return app.Use<ExceptionHandlingMiddleware>(logger);
+        }
+
+        /// <summary>
+        /// Must come directly AFTER security middlewares such as CORS and AccessTokenValidation.
+        /// Any modifications to HttpConfiguration must happen BEFORE this call, since it will be made immutable.
         /// </summary>
         /// <param name="app"></param>
         /// <param name="container"></param>
         /// <param name="config"></param>
+        /// <param name="configureSerializationWithCommonDefaults"></param>
         /// <returns></returns>
-        public static IAppBuilder UseAutofacWebApiStack(this IAppBuilder app, ILifetimeScope container, HttpConfiguration config)
+        public static IAppBuilder UseAutofacWebApiStack(
+            this IAppBuilder app,
+            ILifetimeScope container,
+            HttpConfiguration config,
+            bool configureSerializationWithCommonDefaults = true,
+            bool mapHttpAttributeRoutes = true,
+            bool setHttpDependencyResolverToAutofac = true,
+            bool useAutofacMiddleware = true,
+            bool useAutofacWebApi = true,
+            bool useWebApi = true)
         {
-            var logger = container.Resolve<ILog>();
+            if (configureSerializationWithCommonDefaults)
+            {
+                config.ConfigureSerializationWithCommonDefaults();
+            }
+            if (mapHttpAttributeRoutes)
+            {
+                config.MapHttpAttributeRoutes();
+            }
 
-            config.MapHttpAttributeRoutes();
-            config.IncludeErrorDetailPolicy = IncludeErrorDetailPolicy.LocalOnly;
-            config.Services.Add(typeof(IExceptionLogger), new LogProviderExceptionLogger(logger));
+            if (setHttpDependencyResolverToAutofac)
+            {
+                config.DependencyResolver = new AutofacWebApiDependencyResolver(container);
+            }
 
-            config.Formatters.Remove(config.Formatters.XmlFormatter);
-            ConfigureJsonFormatter(config.Formatters.JsonFormatter);
-
-            config.DependencyResolver = new AutofacWebApiDependencyResolver(container);
-
-            app.UseAutofacMiddleware(container);
-            app.UseAutofacWebApi(config);
-            app.UseWebApi(config);
+            if (useAutofacMiddleware)
+            {
+                app.UseAutofacMiddleware(container);
+            }
+            if (useAutofacWebApi)
+            {
+                app.UseAutofacWebApi(config);
+            }
+            if (useWebApi)
+            {
+                app.UseWebApi(config);
+            }
 
             config.EnsureInitialized();
 
             return app;
-        }
-
-        private static void ConfigureJsonFormatter(JsonMediaTypeFormatter formatter)
-        {
-            formatter.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
-            formatter.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
-            formatter.SerializerSettings.DateTimeZoneHandling = DateTimeZoneHandling.Utc;
-            formatter.SerializerSettings.NullValueHandling = NullValueHandling.Ignore;
-            formatter.SerializerSettings.Converters.Add(new StringEnumConverter { CamelCaseText = true });
-            formatter.UseDataContractJsonSerializer = false;
-            formatter.SerializerSettings.PreserveReferencesHandling = PreserveReferencesHandling.None;
-            formatter.MediaTypeMappings.Add(new RequestHeaderMapping("Accept", "text/html", StringComparison.InvariantCultureIgnoreCase, true, "application/json"));
-
-            formatter.SerializerSettings.Error += (sender, args) =>
-            {
-                var scopedLogger = HttpContext.Current.ResolveFromRequestScope(typeof(ILog)) as ILog;
-                scopedLogger.ErrorException("An error occured during JSON serialization", args.ErrorContext.Error);
-                HttpContext.Current.AddError(args.ErrorContext.Error);
-            };
         }
 
         /// <summary>
@@ -117,7 +139,7 @@ namespace Kleu.Utility.Web
             var fileSystem = new EmbeddedResourceFileSystem(assembly, baseNamespace);
             var fileServerOptions = new FileServerOptions
             {
-                StaticFileOptions = {ServeUnknownFileTypes = true},
+                StaticFileOptions = { ServeUnknownFileTypes = true },
                 FileSystem = fileSystem
             };
 
@@ -131,50 +153,10 @@ namespace Kleu.Utility.Web
         /// &lt;add name=&quot;Owin&quot; verb=&quot;&quot; path=&quot;*&quot; type=&quot;Microsoft.Owin.Host.SystemWeb.OwinHttpHandler, Microsoft.Owin.Host.SystemWeb&quot; /&gt;
         /// </summary>
         /// <param name="app"></param>
-        /// <param name="baseDirectory"></param>
-        /// <param name="defaultFile"></param>
-        public static IAppBuilder UseDynamicFiles(this IAppBuilder app, string baseDirectory, string defaultFile = "index.html")
+        /// <param name="options"></param>
+        public static IAppBuilder UseDynamicFiles(this IAppBuilder app, DynamicFilesOptions options)
         {
-            app.Use(new Func<AppFunc, AppFunc>(next => (async context =>
-            {
-                var method = (string)context[OwinKeys.RequestMethodKey];
-                var scheme = (string)context[OwinKeys.RequestSchemeKey];
-
-                if (method == "GET" && (scheme == "http" || scheme == "https"))
-                {
-                    var requestpath = (string)context[OwinKeys.RequestPathKey];
-                    if (requestpath == "/")
-                    {
-                        requestpath += defaultFile;
-                    }
-                    var fullpath = baseDirectory + requestpath.Replace(@"/", @"\");
-
-
-                    if (File.Exists(fullpath))
-                    {
-
-                        using (var file = File.OpenRead(fullpath))
-                        {
-                            await file.CopyToAsync((Stream)context[OwinKeys.ResponseBodyKey]);
-                        }
-
-                        var mime = MimeMapping.GetMimeMapping(fullpath);
-
-                        if (!(context[OwinKeys.ResponseHeadersKey] is Dictionary<string, string[]> responseHeader))
-                        {
-                            context[OwinKeys.ResponseHeadersKey] = new Dictionary<string, string[]>();
-                            responseHeader = (Dictionary<string, string[]>)context[OwinKeys.ResponseHeadersKey];
-                        }
-                        responseHeader.Add(OwinKeys.ContentTypeHeader, new[] { mime });
-
-                        return;
-                    }
-                }
-
-                await next.Invoke(context);
-            })));
-
-            return app;
+            return app.Use<DynamicFilesMiddleware>(options);
         }
     }
 }

@@ -205,8 +205,10 @@
     <Compile Include="Extensions\Autofac.cs" />
     <Compile Include="Extensions\HttpConfiguration.cs" />
     <Compile Include="Extensions\HttpContext.cs" />
+    <Compile Include="Extensions\JsonMediaTypeFormatter.cs" />
     <Compile Include="IStartup.cs" />
     <Compile Include="Logging\LogProviderExceptionLogger.cs" />
+    <Compile Include="Middlewares\DynamicFilesMiddleware.cs" />
     <Compile Include="Middlewares\ExceptionHandlingMiddleware.cs" />
     <Compile Include="Middlewares\HttpLoggingMiddleware.cs" />
     <Compile Include="OwinKeys.cs" />

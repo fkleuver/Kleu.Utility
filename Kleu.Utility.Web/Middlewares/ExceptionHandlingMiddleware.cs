@@ -35,7 +35,6 @@ namespace Kleu.Utility.Web.Middlewares
             {
                 _logger.ErrorException("An error occurred in the OWIN pipeline", ex);
                 context.Response.StatusCode = 500;
-                context.Environment["can-continue"] = false;
                 await context.Response.WriteAsync(@"{""Message"":""An error occurred in the OWIN pipeline. Further information can be found in the logs.""}");
             }
         }
