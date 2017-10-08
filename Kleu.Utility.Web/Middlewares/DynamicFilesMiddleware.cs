@@ -21,7 +21,7 @@ namespace Kleu.Utility.Web.Middlewares
         public bool LogHandledRequests { get; set; }
         public bool LogSkippedRequests { get; set; }
         public bool AbortIfFileNotFound { get; set; }
-        public Func<string, bool> SkipRequestPath { get; set; } = requestPath => false;
+        public string SkipPathRegex { get; set; }
         public static DynamicFilesOptions Default => new DynamicFilesOptions();
     }
 
@@ -46,7 +46,7 @@ namespace Kleu.Utility.Web.Middlewares
             var requestpath = context.Request.Path.Value;
             var requestJson = $"{{ \"{nameof(method)}\": \"{method}\", \"{nameof(scheme)}\": \"{scheme}\", \"{nameof(requestpath)}\": \"{requestpath}\" }}";
 
-            if (method != "GET" || !Regex.IsMatch(scheme, "https?") || _options.SkipRequestPath(requestpath))
+            if (method != "GET" || !Regex.IsMatch(scheme, "https?") || Regex.IsMatch(requestpath, _options.SkipPathRegex))
             {
                 if (_options.LogSkippedRequests)
                 {
