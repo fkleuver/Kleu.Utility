@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>$id$</id>
+    <version>$version$</version>
+    <title>$title$</title>
+    <authors>fkleuver</authors>
+    <owners>fkleuver</owners>
+    <projectUrl>https://github.com/fkleuver/Kleu.Utility</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>IdentityServer ef6 wrapper</description>
+    <releaseNotes>First release</releaseNotes>
+    <copyright>Copyright 2017</copyright>
+    <tags>kleu utility identity identityserver ef6</tags>
+  </metadata>
+</package>
