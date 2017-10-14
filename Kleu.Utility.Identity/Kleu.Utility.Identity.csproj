@@ -33,8 +33,17 @@
     <Reference Include="Autofac, Version=4.6.1.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
       <HintPath>..\packages\Autofac.4.6.1\lib\net45\Autofac.dll</HintPath>
     </Reference>
+    <Reference Include="Autofac.Extras.DynamicProxy, Version=4.2.1.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\packages\Autofac.Extras.DynamicProxy.4.2.1\lib\net45\Autofac.Extras.DynamicProxy.dll</HintPath>
+    </Reference>
+    <Reference Include="Autofac.Integration.WebApi, Version=4.1.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\packages\Autofac.WebApi2.4.1.0\lib\net45\Autofac.Integration.WebApi.dll</HintPath>
+    </Reference>
     <Reference Include="AutoMapper, Version=6.1.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
       <HintPath>..\packages\AutoMapper.6.1.1\lib\net45\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.Core, Version=4.0.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <HintPath>..\packages\Castle.Core.4.2.1\lib\net45\Castle.Core.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
@@ -57,11 +66,17 @@
     <Reference Include="Kleu.Utility.Data, Version=1.0.6490.6526, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Kleu.Utility.Data.1.0.6490.6526\lib\net47\Kleu.Utility.Data.dll</HintPath>
     </Reference>
+    <Reference Include="Kleu.Utility.IoC, Version=1.0.6489.39134, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Kleu.Utility.IoC.1.0.6489.39134\lib\net47\Kleu.Utility.IoC.dll</HintPath>
+    </Reference>
     <Reference Include="Kleu.Utility.Logging, Version=1.0.6489.39132, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Kleu.Utility.Logging.1.0.6489.39132\lib\net47\Kleu.Utility.Logging.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.1\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
@@ -72,12 +87,16 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.IO, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.IO.4.3.0\lib\net462\System.IO.dll</HintPath>
     </Reference>
     <Reference Include="System.Net.Http, Version=4.1.1.2, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Net.Http.4.3.3\lib\net46\System.Net.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
     </Reference>
     <Reference Include="System.Runtime, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Runtime.4.3.0\lib\net462\System.Runtime.dll</HintPath>
@@ -97,6 +116,9 @@
     <Reference Include="System.ValueTuple, Version=4.0.2.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.ValueTuple.4.4.0\lib\net47\System.ValueTuple.dll</HintPath>
     </Reference>
+    <Reference Include="System.Web.Http, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -104,11 +126,46 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ActAsGrantValidator.cs" />
+    <Compile Include="ApplicationPasswordHasher.cs" />
+    <Compile Include="ApplicationUser.cs" />
     <Compile Include="App_Packages\IdentityServer3.AspNetIdentity\IdentityServer3.AspNetIdentity.cs" />
+    <Compile Include="CheckPermissionAttribute.cs" />
+    <Compile Include="DefaultIdentityServerFactory.cs" />
+    <Compile Include="Context\IdentityDbContext.cs" />
+    <Compile Include="Context\IIdentityDbContext.cs" />
+    <Compile Include="Cryptography\CertificateLoader.cs" />
+    <Compile Include="Cryptography\IterationsLessThanRecommended.cs" />
+    <Compile Include="Cryptography\PasswordComplexitySettings.cs" />
+    <Compile Include="Cryptography\PasswordHasher.cs" />
+    <Compile Include="Cryptography\PasswordPolicyException.cs" />
+    <Compile Include="Cryptography\PasswordTooLongException.cs" />
+    <Compile Include="Cryptography\Rfc2898.cs" />
+    <Compile Include="Cryptography\SaltLessThanRecommended.cs" />
+    <Compile Include="CurrentUser.cs" />
+    <Compile Include="ICurrentUser.cs" />
+    <Compile Include="IOverrideAuthorization.cs" />
+    <Compile Include="ISecurityService.cs" />
+    <Compile Include="OverrideAuthorizationDoNotSkip.cs" />
+    <Compile Include="OverrideAuthorizationSkip.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\ApplicationRoleStore.cs" />
+    <Compile Include="Repositories\ApplicationUserStore.cs" />
+    <Compile Include="Repositories\IApplicationRoleStore.cs" />
+    <Compile Include="Repositories\IApplicationUserStore.cs" />
+    <Compile Include="Repositories\ISecurityRepository.cs" />
+    <Compile Include="Repositories\SecurityRepository.cs" />
+    <Compile Include="Services\ApplicationRoleManager.cs" />
+    <Compile Include="Services\ApplicationUserManager.cs" />
+    <Compile Include="Services\ApplicationUserService.cs" />
+    <Compile Include="Services\IApplicationRoleManager.cs" />
+    <Compile Include="Services\IApplicationUserManager.cs" />
+    <Compile Include="Services\IApplicationUserService.cs" />
+    <Compile Include="Services\SecurityService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <EmbeddedResource Include="Cryptography\idsrv3test.pfx" />
     <None Include="Kleu.Utility.Identity.nuspec" />
     <None Include="packages.config" />
   </ItemGroup>
