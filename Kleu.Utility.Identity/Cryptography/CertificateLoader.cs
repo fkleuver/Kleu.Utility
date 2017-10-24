@@ -65,7 +65,7 @@ namespace Kleu.Utility.Identity.Cryptography
         public static X509Certificate2 GetTestCertificate()
         {
             var assembly = typeof(CertificateLoader).Assembly;
-            using (var stream = assembly.GetManifestResourceStream("Dnk.Core.Security.Cryptography.idsrv3test.pfx"))
+            using (var stream = assembly.GetManifestResourceStream("Kleu.Utility.Identity.Cryptography.idsrv3test.pfx"))
             {
                 return new X509Certificate2(ReadStream(stream), "idsrv3test");
             }
